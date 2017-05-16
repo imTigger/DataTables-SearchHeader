@@ -1,0 +1,19 @@
+{
+  "name": "datatables-searchheader",
+  "description": "Create search header for dataTables",
+  "version": "0.0.1",
+  "keywords": [
+    "datatables"
+  ],
+  "authors": [
+    "Tiger Fok <tiger@tiger-workshop.com>"
+  ],
+  "main": "dataTables.searchHeader.js",
+  "ignore": [
+    "**/.gitignore"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.6",
+    "datatables.net": "^1.10.12"
+  }
+}
