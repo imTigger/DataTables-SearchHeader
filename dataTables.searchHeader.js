@@ -10,10 +10,15 @@ $(document).on( 'init.dt', function (e, settings, json) {
 
     // Append fields
     $table.find("tfoot th").each( function (k, v) {
-        if (settings.aoColumns[k].bSearchable) {
-            $(this).html('<input type="text" class="simple-search-field"/>');
-        } else {
+        var column = settings.aoColumns[k];
+        if (!column.bSearchable) {
             $(this).html('');
+        } else if (column.searchType == 'date') {
+            $(this).html('<input type="text" class="date-search-field datepicker"/>');
+        } else if (column.searchType == 'date-range') {
+            $(this).html('<input type="text" placeholder="From" class="date-range-search-field datepicker datatable-filter" name="' + column.data + '_from"/><input type="text" placeholder="To" class="date-range-search-field datepicker datatable-filter" name="' + column.data + '_to"/>');
+        } else {
+            $(this).html('<input type="text" class="text-search-field"/>');
         }
     });
 

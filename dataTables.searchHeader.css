@@ -18,6 +18,12 @@
     background: #fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAARBJREFUOI3Vj61OA1EUhGfGIuoLgjdA1ZJ6kr5J721SGurahpCQCtLdi8cia3kCbNMXwGHoBoHeO1hY+hMEgk+enJnzHeDfw+YgpdSu6/pGUi/n3JK0zjnPB4PB47YCNcO2nyVtbJ+RPCJ5BWBWluX4oMFisXiQtAkhjLZYrSV1QggvOw0k9WwXzSv9fv+V5BLAxd4Xcs4tAG9bVcmN7dbeAklrSefNJdsE0CW5OmQwr+v6PqXU/hpOKY0AnFRV9fTDrDkoy3Kcc74kuSS5AdAFcALg2PYsxjjdaQAAIYRbSR2SK9sfAK6rqjq1PSM5KYriW8EPg30URTElObE9jDHebTXYR4xxanso6f03ub/lE7OOenGQzQC8AAAAAElFTkSuQmCC') no-repeat 4px center;
 }
 
+.search-header tfoot .date-range-search-field {
+    width: 50%;
+    padding: 5px;
+    background: #fff;
+}
+
 .search-header tfoot th {
     padding: 0;
 }
