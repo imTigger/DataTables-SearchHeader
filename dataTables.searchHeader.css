@@ -10,7 +10,7 @@
     display: table-footer-group;
 }
 
-.search-header tfoot input {
+.search-header tfoot input, .search-header tfoot select {
     box-sizing: border-box;
     width: 100%;
     border: 0;
