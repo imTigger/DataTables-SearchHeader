@@ -18,7 +18,7 @@ $(document).on('init.dt', function (e, settings, json) {
             $(this).find('select').append('<option value=""></option>');
 
             for (var i in column.searchOptions) {
-                $(this).find('select').append('<option value="' + i + '">' + column.searchOptions[i].value + '</option>');
+                $(this).find('select').append('<option value="' + column.searchOptions[i].key + '">' + column.searchOptions[i].value + '</option>');
             }
         } else if (column.searchType == 'date') {
             $(this).html('<input type="text" class="datatable-search-field simple-search-field date-search-field datepicker"/>');
