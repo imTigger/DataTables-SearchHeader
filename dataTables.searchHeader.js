@@ -24,6 +24,10 @@ $(document).on('init.dt', function (e, settings, json) {
             $(this).html('<input type="text" class="datatable-search-field simple-search-field date-search-field datepicker"/>');
         } else if (column.searchType == 'date-range') {
             $(this).html('<input type="text" placeholder="From" class="datatable-search-field date-range-search-field datepicker datatable-filter" name="' + column.data + '_from"/><input type="text" placeholder="To" class="date-range-search-field datepicker datatable-filter" name="' + column.data + '_to"/>');
+        } else if (column.searchType == 'datetime') {
+            $(this).html('<input type="text" class="datatable-search-field simple-search-field datetime-search-field datetimepicker"/>');
+        } else if (column.searchType == 'datetime-range') {
+            $(this).html('<input type="text" placeholder="From" class="datatable-search-field datetime-range-search-field datetimepicker datatable-filter" name="' + column.data + '_from"/><input type="text" placeholder="To" class="date-range-search-field datepicker datatable-filter" name="' + column.data + '_to"/>');
         } else {
             $(this).html('<input type="text" class="datatable-search-field simple-search-field text-search-field"/>');
         }
