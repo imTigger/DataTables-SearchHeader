@@ -8,7 +8,7 @@ Load the CSS and JS AFTER Datatables.
 
 Add `search-header` to your DataTables enabled table.
 
-## Compatability 
+## Compatibility 
 
 Tested with [https://datatables.net/download/index](DataTables 1.10.5)
 
