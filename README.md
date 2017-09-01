@@ -16,7 +16,23 @@ Tested with [https://datatables.net/extensions/buttons/](Buttons)
 
 Tested with [https://datatables.net/extensions/responsive/](Responsive)
 
-## Example 1 (Server Side Table)
+## Example 1 (Bare Minimal)
+
+```
+<table class="search-header" id="dataTables">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Order Number</th>
+            <th data-searchable="false" data-sortable="false"></th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+```
+
+## Example 2 (Server Side Table)
 ```
 <table class="table table-striped table-bordered table-hover" id="dataTables" data-ajax="http://domain.com/ajax" data-processing="true" data-server-side="true">
     <thead>
