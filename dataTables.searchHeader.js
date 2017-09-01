@@ -12,7 +12,7 @@ $(document).on('init.dt', function (e, settings, json) {
     for (k in settings.aoColumns) {
         var column = settings.aoColumns[k];
         var $th = $('<th/>');
-        var fieldName = column.data;
+        var fieldName = column.name ? column.name : column.data;
         
         $tfoot.append($th);
         
