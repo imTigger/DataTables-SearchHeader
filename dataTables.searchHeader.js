@@ -52,12 +52,18 @@ $(document).on('init.dt', function (e, settings, json) {
         var that = this;
         var $header = $table.find('tfoot th:nth-child(' + parseInt(this.index() + 1) + ')');
         var $input = $header.find('input.simple-search-field, select.simple-search-field');
-
+        var throttleSearch = $.fn.dataTable.util.throttle(
+            function (val) {
+                that.search(val).draw();
+            },
+            300
+        );
+        
         $input
             .off()
             .on('keyup.DT change', function () {
                 if (that.search() !== this.value) {
-                    that.search(this.value).draw();
+                    throttleSearch(this.value);
                 }
             })
             .on('keypress.DT', function (e) {
