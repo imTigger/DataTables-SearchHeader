@@ -87,8 +87,8 @@ $(document).on('init.dt', function (e, settings, json) {
     // Column visibility
     dt.on('column-visibility', function (e, datatable, column, visible) {
         if (visible === true)
-            $table.find('tfoot th:nth-child(' + column + ')').show();
+            $table.find('tfoot th:nth-child(' + (column + 1) + ')').show();
         else
-            $table.find('tfoot th:nth-child(' + column + ')').hide();
+            $table.find('tfoot th:nth-child(' + (column + 1) + ')').hide();
     });
 });
