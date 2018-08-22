@@ -18,12 +18,22 @@ $(document).on('init.dt', function (e, settings, json) {
         
         if (!column.bSearchable) {
             $th.html('');
-        } else if (column.searchType == 'select' && Object.keys(column.searchOptions).length > 0) {
+        } else if (column.searchType == 'select') {
             $th.html('<select style="width: 100%" class="datatable-search-field simple-search-field select-search-field" name="' + fieldName + '"></select>');
             $th.find('select').append('<option value=""></option>');
-
-            for (var i in column.searchOptions) {
-                $th.find('select').append('<option value="' + column.searchOptions[i].key + '">' + column.searchOptions[i].value + '</option>');
+            
+            // Check if searchOptions is array
+            if (Object.keys(column.searchOptions).length > 0) {
+                for (var i in column.searchOptions) {
+                    // Check if searchOptions is key-value pair or simple string array
+                    if (column.searchOptions[i].key && column.searchOptions[i].value) {
+                        $th.find('select').append('<option value="' + column.searchOptions[i].key + '">' + column.searchOptions[i].value + '</option>');
+                    } else {
+                        $th.find('select').append('<option value="' + column.searchOptions[i] + '">' + column.searchOptions[i] + '</option>');
+                    }
+                }
+            } else {
+                console.log("column.searchOptions is not an array");
             }
         } else if (column.searchType == 'date') {
             $th.html('<input type="text" class="datatable-search-field simple-search-field date-search-field datepicker" name="' + fieldName + '"/>');
