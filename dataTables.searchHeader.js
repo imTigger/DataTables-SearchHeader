@@ -19,7 +19,7 @@ $(document).on('init.dt', function (e, settings, json) {
         if (!column.bSearchable) {
             $th.html('');
         } else if (column.searchType == 'select') {
-            $th.html('<select style="width: 100%" class="datatable-search-field simple-search-field select-search-field" name="' + fieldName + '"></select>');
+            $th.html('<select style="width: 100%" class="search-field" name="' + fieldName + '"></select>');
             $th.find('select').append('<option value=""></option>');
             
             // Check if searchOptions is array
@@ -36,15 +36,15 @@ $(document).on('init.dt', function (e, settings, json) {
                 console.log("column.searchOptions is not an array");
             }
         } else if (column.searchType == 'date') {
-            $th.html('<input type="text" class="datatable-search-field simple-search-field date-search-field datepicker" name="' + fieldName + '"/>');
+            $th.html('<input type="text" class="search-field show-date-picker" name="' + fieldName + '"/>');
         } else if (column.searchType == 'date-range') {
-            $th.html('<input type="text" placeholder="From" class="datatable-search-field date-range-search-field datepicker datatable-filter" name="' + fieldName + '_from"/><input type="text" placeholder="To" class="date-range-search-field datepicker datatable-filter" name="' + fieldName + '_to"/>');
+            $th.html('<input type="text" class="search-field show-date-range-picker"/>');
         } else if (column.searchType == 'datetime') {
-            $th.html('<input type="text" class="datatable-search-field simple-search-field datetime-search-field datetimepicker"/>');
+            $th.html('<input type="text" class="search-field show-datetime-picker"/>');
         } else if (column.searchType == 'datetime-range') {
-            $th.html('<input type="text" placeholder="From" class="datatable-search-field datetime-range-search-field datetimepicker datatable-filter" name="' + fieldName + '_from"/><input type="text" placeholder="To" class="datetime-range-search-field datetimepicker datatable-filter" name="' + fieldName + '_to"/>');
+            $th.html('<input type="text" class="search-field show-datetime-range-picker"/>');
         } else {
-            $th.html('<input type="text" class="datatable-search-field simple-search-field text-search-field" name="' + fieldName + '"/>');
+            $th.html('<input type="text" class="search-field" name="' + fieldName + '"/>');
         }
 
         // Hide column if not visible
@@ -61,7 +61,7 @@ $(document).on('init.dt', function (e, settings, json) {
     dt.columns().every(function () {
         var that = this;
         var $header = $table.find('tfoot th:nth-child(' + parseInt(this.index() + 1) + ')');
-        var $input = $header.find('input.simple-search-field, select.simple-search-field');
+        var $input = $header.find('input.search-field, select.search-field');
         var throttleSearch = $.fn.dataTable.util.throttle(
             function (val) {
                 that.search(val).draw();
