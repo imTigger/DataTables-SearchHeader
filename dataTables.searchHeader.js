@@ -37,15 +37,15 @@ $(document).on('init.dt', function (e, settings, json) {
                 console.log("column.searchOptions is not an array/object");
             }
         } else if (column.searchType == 'date') {
-            $th.html('<input type="text" class="ddatepicker" name="' + fieldName + '"/>');
+            $th.html('<input type="text" class="search-field show-date-picker" name="' + fieldName + '"/>');
         } else if (column.searchType == 'date-range') {
-            $th.html('<input type="text" class="daterangepicker"/>');
+            $th.html('<input type="text" class="search-field show-date-range-picker"/>');
         } else if (column.searchType == 'datetime') {
-            $th.html('<input type="text" class="datetimepicker"/>');
+            $th.html('<input type="text" class="search-field show-datetime-picker"/>');
         } else if (column.searchType == 'datetime-range') {
-            $th.html('<input type="text" class="datetimerangepicker"/>');
+            $th.html('<input type="text" class="search-field show-datetime-range-picker"/>');
         } else {
-            $th.html('<input type="text" class="text-search-field" name="' + fieldName + '"/>');
+            $th.html('<input type="text" class="search-field" name="' + fieldName + '"/>');
         }
 
         // Hide column if not visible
@@ -62,7 +62,7 @@ $(document).on('init.dt', function (e, settings, json) {
     dt.columns().every(function () {
         var that = this;
         var $header = $table.find('tfoot th:nth-child(' + parseInt(this.index() + 1) + ')');
-        var $input = $header.find('input.simple-search-field, select.simple-search-field');
+        var $input = $header.find('input.search-field, select.search-field');
         var throttleSearch = $.fn.dataTable.util.throttle(
             function (val) {
                 that.search(val).draw();
