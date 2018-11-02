@@ -1,0 +1,19 @@
+{
+  "name": "datatables-searchheader",
+  "version": "0.2.2",
+  "description": "jQuery plugin to generate search header for DataTables with various types of search fields.",
+  "main": "dataTables.searchHeader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imTigger/DataTables-SearchHeader.git"
+  },
+  "author": "Tiger Fok",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imTigger/DataTables-SearchHeader/issues"
+  },
+  "homepage": "https://github.com/imTigger/DataTables-SearchHeader#readme"
+}
