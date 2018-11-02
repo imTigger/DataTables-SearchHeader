@@ -67,7 +67,7 @@ $(document).on('init.dt', function (e, settings, json) {
             function (val) {
                 that.search(val).draw();
             },
-            300
+            settings.searchDelay
         );
         
         $input
