@@ -13,15 +13,15 @@ $(document).on('init.dt', function (e, settings, json) {
         var column = settings.aoColumns[k];
         var $th = $('<th/>');
         var fieldName = column.name ? column.name : column.data;
-        
+
         $tfoot.append($th);
-        
+
         if (!column.bSearchable) {
             $th.html('');
         } else if (column.searchType == 'select') {
             $th.html('<select style="width: 100%" class="search-field" name="' + fieldName + '"></select>');
             $th.find('select').append('<option value=""></option>');
-            
+
             // Check if searchOptions is array/object
             if (Object.keys(column.searchOptions).length > 0) {
                 for (var i in column.searchOptions) {
@@ -53,7 +53,7 @@ $(document).on('init.dt', function (e, settings, json) {
             $th.hide();
         }
     };
-    
+
     $table.append($tfoot);
 
     var dt = $table.dataTable().api();
@@ -69,7 +69,7 @@ $(document).on('init.dt', function (e, settings, json) {
             },
             settings.searchDelay
         );
-        
+
         $input
             .off()
             .on('keyup.DT change', function () {
@@ -85,21 +85,25 @@ $(document).on('init.dt', function (e, settings, json) {
             });
     });
 
+    var render = function () {
+        dt.columns().every(function () {
+            var index = this.index() + 1;
+            var responsiveVisibility = typeof dt.responsive === 'undefined' || !dt.responsive.hasHidden() || this.responsiveHidden();
+            var visibility = this.visible() && responsiveVisibility;
+
+            $table.find('tfoot th:nth-child(' + index + ')').toggle(visibility);
+        });
+    }
+
     // Responsive Table
     dt.on('responsive-resize', function (e, datatable, columns) {
-        for (var i in columns) {
-            if (columns[i] === true)
-                $table.find('tfoot th:nth-child(' + (parseInt(i) + 1) + ')').show();
-            else
-                $table.find('tfoot th:nth-child(' + (parseInt(i) + 1) + ')').hide();
-        }
+        render();
     });
 
     // Column visibility
     dt.on('column-visibility', function (e, datatable, column, visible) {
-        if (visible === true)
-            $table.find('tfoot th:nth-child(' + (column + 1) + ')').show();
-        else
-            $table.find('tfoot th:nth-child(' + (column + 1) + ')').hide();
+        render();
     });
+
+    render();
 });
