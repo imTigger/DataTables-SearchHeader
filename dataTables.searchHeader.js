@@ -61,6 +61,8 @@ $(document).on('init.dt', function (e, settings, json) {
     // Handle Field Changes
     dt.columns().every(function () {
         var that = this;
+        var column = settings.aoColumns[that.index()];
+        
         var $header = $table.find('tfoot th:nth-child(' + parseInt(this.index() + 1) + ')');
         var $input = $header.find('input.search-field, select.search-field');
         var throttleSearch = $.fn.dataTable.util.throttle(
@@ -73,7 +75,7 @@ $(document).on('init.dt', function (e, settings, json) {
         $input
             .off()
             .on('keyup.DT change', function () {
-                if (that.search() !== this.value) {
+                if (that.search() !== this.value && (!column.searchMinLength || this.value.length >= column.searchMinLength)) {
                     throttleSearch(this.value);
                 }
             })
