@@ -75,7 +75,7 @@ $(document).on('init.dt', function (e, settings, json) {
         $input
             .off()
             .on('keyup.DT change', function () {
-                if (that.search() !== this.value && (!column.searchMinLength || this.value.length >= column.searchMinLength)) {
+                if (that.search() !== this.value && (!column.searchMinLength || this.value.length === 0 || this.value.length >= column.searchMinLength)) {
                     throttleSearch(this.value);
                 }
             })
