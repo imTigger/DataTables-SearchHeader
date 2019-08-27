@@ -23,7 +23,7 @@ $(document).on('init.dt', function (e, settings, json) {
             $th.find('select').append('<option value=""></option>');
 
             // Check if searchOptions is array/object
-            if (Object.keys(column.searchOptions).length > 0) {
+            if (column.searchOptions && Object.keys(column.searchOptions).length > 0) {
                 for (var i in column.searchOptions) {
                     if (column.searchOptions[i].key && column.searchOptions[i].value) { // Is searchOptions key-value pair?
                         $th.find('select').append('<option value="' + column.searchOptions[i].key + '">' + column.searchOptions[i].value + '</option>');
