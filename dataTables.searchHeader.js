@@ -33,8 +33,6 @@ $(document).on('init.dt', function (e, settings, json) {
                         $th.find('select').append('<option value="' + column.searchOptions[i] + '">' + column.searchOptions[i] + '</option>');
                     }
                 }
-            } else {
-                console.log("column.searchOptions is not an array/object");
             }
         } else if (column.searchType == 'date') {
             $th.html('<input type="text" class="search-field show-date-picker" name="' + fieldName + '"/>');
