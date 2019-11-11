@@ -1,8 +1,9 @@
 {
   "name": "datatables-searchheader",
-  "version": "0.3.3",
+  "version": "0.3.5",
   "description": "jQuery plugin to generate search header for DataTables with various types of search fields.",
   "main": "dataTables.searchHeader.js",
+  "style": "dataTables.searchHeader.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
